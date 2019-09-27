@@ -9,6 +9,9 @@ var (
 	EventRecognizeSuccess = "RECOGNIZE_SUCCESS"
 	EventRecognizeFail    = "RECOGNIZE_FAIL"
 	EventCaptureFail      = "CAPTURE_FAIL"
+
+	ResultPresent = "PRESENT"
+	ResultMissing = "MISSING"
 )
 
 type Event struct {
@@ -18,4 +21,5 @@ type Event struct {
 	Timestamp time.Time     `json:"timestamp" bson:"timestamp"`
 	Type      string        `json:"type" bson:"type"`
 	Error     string        `json:"error" bson:"error"`
+	Result    string        `json:"result" bson:"result"`
 }
