@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-func CallBulkRecognize(broker string, projectId string, frames [][]byte) (*model.BulkRecognizeResponse, error) {
+func CallBulkRecognize(opts *mqtt.ClientOptions, projectId string, frames [][]byte) (*model.BulkRecognizeResponse, error) {
 	reqId := uuid.New().String()
 	rpcRequestTopic := "/3ml/worker/" + projectId + "/rpc/recognizeFacesBulk/request"
 	rpcResponseTopic := "/3ml/worker/response/generated/" + uuid.New().String()
@@ -23,7 +23,8 @@ func CallBulkRecognize(broker string, projectId string, frames [][]byte) (*model
 	})
 
 	clientId := uuid.New().String()
-	opts := GetDefaultOps(broker, clientId)
+	opts.ClientID = clientId
+
 	c := mqtt.NewClient(opts)
 	if token := c.Connect(); token.Wait() && token.Error() != nil {
 		panic(token.Error().Error())

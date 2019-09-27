@@ -10,11 +10,11 @@ import (
 	"time"
 )
 
-func CaptureFrameContinuously(deviceId string, frameDelay int, totalPics int) ([][]byte, error) {
+func CaptureFrameContinuously(opts *mqtt.ClientOptions, deviceId string, frameDelay int, totalPics int) ([][]byte, error) {
 	log.Println("[RECOGNIZE]", "Capturing", totalPics, "frames from device", deviceId, "with delay", frameDelay)
 	clientId := uuid.New().String()
-	opts := GetDefaultOps(clientId)
 
+	opts.ClientID = clientId
 	var pics [][]byte
 
 	done := make(chan bool)
@@ -58,13 +58,12 @@ func CaptureFrameContinuously(deviceId string, frameDelay int, totalPics int) ([
 	}
 }
 
-func ServeLiveStream(deviceId string, c *gin.Context) {
+func ServeLiveStream(opts *mqtt.ClientOptions, deviceId string, c *gin.Context) {
 	log.Println("[LIVESTREAM]", "Serving live stream for device", deviceId)
 	s := mjpeg.NewStream()
 
 	clientId := "livestream_" + deviceId + "_" + uuid.New().String()
-	opts := GetDefaultOps(clientId)
-
+	opts.ClientID = clientId;
 	timeoutDuration := 5 * time.Second
 	frameTimeout := time.NewTimer(timeoutDuration)
 
