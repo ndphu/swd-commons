@@ -10,5 +10,5 @@ type Face struct {
 	Descriptor [128]float32  `json:"descriptor" bson:"descriptor"`
 	MD5        string        `json:"md5" bson:"md5"`
 	DeviceId   string        `json:"deviceId" bson:"deviceId"`
-	ProjectId  string        `json:"projectId" bson:"projectId"`
+	DeskId     string        `json:"deskId" bson:"deskId"`
 }

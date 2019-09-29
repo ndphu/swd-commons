@@ -4,7 +4,7 @@ import "github.com/globalsign/mgo/bson"
 
 type Rule struct {
 	Id        bson.ObjectId `json:"id" bson:"_id"`
-	ProjectId string        `json:"projectId" bson:"projectId"`
+	DeskId string        `json:"deskId" bson:"deskId"`
 	DeviceId  string        `json:"deviceId" bson:"deviceId"`
 	Action    Action        `json:"action" bson:"action"`
 	Interval  int        `json:"interval" bson:"interval"`

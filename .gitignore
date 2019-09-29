@@ -1,2 +1,4 @@
 swd-commons.iml
 .idea
+go.mod
+go.sum

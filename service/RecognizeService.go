@@ -10,9 +10,9 @@ import (
 	"time"
 )
 
-func CallBulkRecognize(opts *mqtt.ClientOptions, projectId string, frames [][]byte) (*model.BulkRecognizeResponse, error) {
+func CallBulkRecognize(opts *mqtt.ClientOptions, deskId string, frames [][]byte) (*model.BulkRecognizeResponse, error) {
 	reqId := uuid.New().String()
-	rpcRequestTopic := "/3ml/worker/" + projectId + "/rpc/recognizeFacesBulk/request"
+	rpcRequestTopic := "/3ml/worker/" + deskId + "/rpc/recognizeFacesBulk/request"
 	rpcResponseTopic := "/3ml/worker/response/generated/" + uuid.New().String()
 
 	rpcReqPayload, _ := json.Marshal(model.BulkRecognizeRequest{
