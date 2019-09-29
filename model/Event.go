@@ -22,4 +22,5 @@ type Event struct {
 	Type      string        `json:"type" bson:"type"`
 	Error     string        `json:"error" bson:"error"`
 	Result    string        `json:"result" bson:"result"`
+	UserId    bson.ObjectId `json:"owner" bson:"owner"`
 }

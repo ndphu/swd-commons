@@ -11,4 +11,5 @@ type Face struct {
 	MD5        string        `json:"md5" bson:"md5"`
 	DeviceId   string        `json:"deviceId" bson:"deviceId"`
 	DeskId     string        `json:"deskId" bson:"deskId"`
+	UserId     bson.ObjectId `json:"owner" bson:"owner"`
 }

@@ -8,4 +8,5 @@ type Device struct {
 	Name     string        `json:"name" bson:"name"`
 	Status   string        `json:"status" bson:"status"`
 	DeskId   string        `json:"deskId" bson:"deskId"`
+	Owner    bson.ObjectId `json:"owner" bson:"owner"`
 }

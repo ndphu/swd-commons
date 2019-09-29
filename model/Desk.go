@@ -6,4 +6,5 @@ type Desk struct {
 	Id     bson.ObjectId `json:"id" bson:"_id"`
 	DeskId string        `json:"deskId" bson:"deskId"`
 	Name   string        `json:"name" bson:"name"`
+	Owner  bson.ObjectId `json:"owner" bson:"owner"`
 }
