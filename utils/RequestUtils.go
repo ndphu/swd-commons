@@ -42,7 +42,7 @@ func GetWithAccessToken(url string, accessToken string) (int, []byte, error) {
 		return -1, nil, err
 	}
 
-	return makeRequest(req)
+	return MakeRequest(req)
 }
 
 func PostJsonModel(url string, authorization string, obj interface{}) (int, []byte, error) {
@@ -63,10 +63,10 @@ func PostJsonModel(url string, authorization string, obj interface{}) (int, []by
 		return -1, nil, err
 	}
 
-	return makeRequest(req)
+	return MakeRequest(req)
 }
 
-func makeRequest(req *http.Request) (int, []byte, error) {
+func MakeRequest(req *http.Request) (int, []byte, error) {
 	client := &http.Client{}
 
 	resp, err := client.Do(req)

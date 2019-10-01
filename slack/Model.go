@@ -35,16 +35,20 @@ type Event struct {
 	ChannelType     string `json:"channel_type"`
 }
 
-
 type ReplyMessage struct {
 	Text    string `json:"text"`
 	Channel string `json:"channel"`
-	AsUser bool `json:"as_user"`
+	AsUser  bool   `json:"as_user"`
 }
 
+type UserInviteResponse struct {
+	OK    bool   `json:"ok"`
+	Error string `json:"error"`
+}
 
-type UserSearchRespond struct {
+type UserSearchResponse struct {
 	OK   bool `json:"ok"`
+	Error string `json:"error"`
 	User User `json:"user"`
 }
 
