@@ -7,6 +7,9 @@ type BulkRecognizeRequest struct {
 	IncludeFacesDetails bool     `json:"includeFacesDetails"`
 	RequestId           string   `json:"requestId"`
 	ResponseTo          string   `json:"responseTo"`
+	DeskId              string   `json:"deskId"`
+	AccessToken         string   `json:"accessToken"`
+	FacesData           []Face   `json:"facesData"`
 }
 
 type BulkRecognizeResponse struct {
