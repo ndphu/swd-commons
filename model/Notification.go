@@ -14,4 +14,5 @@ type Notification struct {
 	Timestamp   time.Time     `json:"timestamp" bson:"timestamp"`
 	UserId      bson.ObjectId `json:"owner" bson:"owner"`
 	SlackUserId string        `json:"slackUserId"`
+	Message     string        `json:"message" bson:"message"`
 }
