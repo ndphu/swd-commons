@@ -79,12 +79,25 @@ func LookupUserIdByEmail(email string) (*User, error) {
 	}
 }
 
-func SendMessageToUser(userId, message string) error {
+func SendSimpleTextMessageToUser(userId, message string) error {
 	mesg := ReplyMessage{
 		Text:    message,
 		Channel: userId,
 		AsUser:  true,
 	}
+	return sendReplyMessage(mesg)
+}
+
+func SendMessage(userId string, attachment Attachment) error {
+	mesg := ReplyMessage{
+		Channel:     userId,
+		AsUser:      true,
+		Attachments: []Attachment{attachment},
+	}
+	return sendReplyMessage(mesg)
+}
+
+func sendReplyMessage(mesg ReplyMessage) error {
 	status, data, err := utils.PostJsonModel(postMessageUrl, "Bearer "+botAccessToken, mesg)
 	if err != nil {
 		log.Println("[SLACKBOT]", "Fail to post reply message, server return status:", status)
