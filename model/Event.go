@@ -9,6 +9,9 @@ var (
 	EventRecognizeSuccess = "RECOGNIZE_SUCCESS"
 	EventRecognizeFail    = "RECOGNIZE_FAIL"
 	EventCaptureFail      = "CAPTURE_FAIL"
+	EventScaleLiftUp      = "SCALE_LIFT_UP"
+	EventScalePutDown     = "SCALE_PUT_DOWN"
+	EventScaleUpdate      = "SCALE_UPDATE"
 
 	ResultPresent = "PRESENT"
 	ResultMissing = "MISSING"
